@@ -97,7 +97,8 @@ namespace CustomClassList
             {
                 if (ItemCount == Capacity)
                 {
-                    Capacity += 4;
+                    ItemCount++;
+                    ChangeCapacity();
                 }
             }
 
@@ -118,14 +119,17 @@ namespace CustomClassList
 
         }
 
-        public void CheckCapacity ()
+        public void ChangeCapacity ()
         {
-            
-                   // T[] listArrayReplace = new T[ListArray.Length + 4];
-                    
-                   // ListArray = null;
-                  
-                  //  ListArray = listArrayReplace;
+            Capacity += 4;
+            T[] listArrayReplace = new T[ListArray.Length + 4];
+
+            for (int i = 0; i < ListArray.Length; i++) 
+            {
+                listArrayReplace[i] = ListArray[i];
+            }
+
+                  ListArray = listArrayReplace;
 
         }
 

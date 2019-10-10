@@ -91,19 +91,18 @@ namespace ListTest
         {
             //arrange
             CustomList<int> testClass = new CustomList<int>();
+            int test1 = 16;
+            int expectedResults = test1;
             int actualResults;
-
 
             //act
             testClass.Add(4);
             testClass.Add(8);
             testClass.Add(12);
-            testClass.Add(16);
-            testClass.Add(20);
-            actualResults = testClass.Capacity;
-           
+            testClass.Add(test1);
+            testClass.Add(20);           
             
-            actualResults = testClass.ListArray[testClass.ItemCount - 1];
+            actualResults = testClass.ListArray[3];
 
             //assert
             Assert.AreEqual(actualResults, expectedResults);
