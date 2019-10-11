@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace CustomClassList
 {
-    public class CustomList<T>
+
+    /// <summary>
+    /// Assignments:
+    /// 1. debug the Change replace values test.
+    /// 2. finish add function
+    /// </summary>
+    public class MyList<T>
     {
         //Fields
         private T[] listArray = new T[4];
@@ -14,7 +20,7 @@ namespace CustomClassList
         private int capacity;
         
         //Constructor/s
-        public CustomList()
+        public MyList()
         {
             Capacity = ListArray.Length;
 
@@ -89,20 +95,12 @@ namespace CustomClassList
             {
                 listArray[ItemCount] = input;
                 ItemCount++;
-
             }
-
-
             else
             {
-                if (ItemCount == Capacity)
-                {
                     ItemCount++;
                     ChangeCapacity();
-                }
             }
-
-
         }
 
         public void Remove(T input)
@@ -128,9 +126,9 @@ namespace CustomClassList
             {
                 listArrayReplace[i] = ListArray[i];
             }
-
+                  ListArray = null;
                   ListArray = listArrayReplace;
-
+                  
         }
 
             

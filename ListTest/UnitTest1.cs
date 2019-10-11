@@ -14,7 +14,7 @@ namespace ListTest
         public void Add_Object_CountIncreases()
         {
             //arrange
-            CustomList<int> testClass = new CustomList<int>();
+            MyList<int> testClass = new MyList<int>();
 
             int test1 = 5;
             int expectedResult = 1;
@@ -100,8 +100,10 @@ namespace ListTest
             testClass.Add(8);
             testClass.Add(12);
             testClass.Add(test1);
-            testClass.Add(20);           
-            
+            testClass.Add(20);
+            testClass.Add(24);
+
+
             actualResults = testClass.ListArray[3];
 
             //assert
@@ -117,64 +119,84 @@ namespace ListTest
             int test1 = 5;
             //testArray[0] = test1;
 
-          //  int expectedResult = testArray.Length;
-            int actualResults;
+            //  int expectedResult = testArray.Length;
+            int actualResults = 1;
+            int expectedResults = 0;
 
             //act
             testClass.Remove(test1);
           //  actualResults = testArray.Length;
             //assert
-          //  Assert.AreEqual(actualResults, expectedResult);
+          Assert.AreEqual(actualResults, expectedResults);
         }
 
         [TestMethod]
         public void Remove_Object_ReturnsTrue()
         {
+            int actualResults = 1;
+            int expectedResults = 0;
+            Assert.AreEqual(actualResults, expectedResults);
 
         }
 
         [TestMethod]
         public void Remove_Object_ShiftsArrayElements()
         {
-
+            int actualResults = 1;
+            int expectedResults = 0;
+            Assert.AreEqual(actualResults, expectedResults);
         }
 
         [TestMethod]
         public void Send_ObjectToString_ReturnsString()
         {
-
+            int actualResults = 1;
+            int expectedResults = 0;
+            Assert.AreEqual(actualResults, expectedResults);
         }
 
         [TestMethod]
         public void Send_NoObjectToString_ReturnsNull()
         {
-
+            int actualResults = 1;
+            int expectedResults = 0;
+            Assert.AreEqual(actualResults, expectedResults);
         }
 
         [TestMethod]
         public void Send_NullTypeToString_ReturnsNull()
         {
-
+            int actualResults = 1;
+            int expectedResults = 0;
+            Assert.AreEqual(actualResults, expectedResults);
         }
 
         public void Index_SelectIndex_SetsIndex()
         {
-
+            int actualResults = 1;
+            int expectedResults = 0;
+            Assert.AreEqual(actualResults, expectedResults);
         }
 
         public void Index_SelectIndex_GetsIndex()
         {
-
+            int actualResults = 1;
+            int expectedResults = 0;
+            Assert.AreEqual(actualResults, expectedResults);
         }
 
         public void Index_SelectIndex_ReturnIndex()
         {
-
+            int actualResults = 1;
+            int expectedResults = 0;
+            Assert.AreEqual(actualResults, expectedResults);
         }
 
         public void Index_SelectIndex_ReturnsIndexOutOfRangeException()
         {
-
+            int actualResults = 1;
+            int expectedResults = 0;
+            Assert.AreEqual(actualResults, expectedResults);
         }
 
 
