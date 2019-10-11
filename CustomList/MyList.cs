@@ -4,41 +4,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomClassList
+namespace CustomCLassList
 {
-
-    /// <summary>
-    /// Assignments:
-    /// 1. debug the Change replace values test.
-    /// 2. finish add function
-    /// </summary>
     public class MyList<T>
     {
+
+        /// <summary>
+        /// Assignments:
+        /// 1. debug the Change replace values test.
+        /// 2. finish add function
+        /// </summary>
+
         //Fields
         private T[] listArray = new T[4];
         private int itemCount = 0;
         private int capacity;
-        
+
         //Constructor/s
-        public MyList()
+        public void myList()
         {
             Capacity = ListArray.Length;
 
         }
 
 
-        //INDEXER
-        public T this[int index]
-        {
-            get {
-
-
-                return listArray[index];
-            }
-            set {
+        ////INDEXER
+             public T this[int index]
+            {
+               get
+                {
+               return listArray[index];
+               }
+            set
+           {
 
                 value = listArray[index];
-            }
+           }
         }
 
         //Properties
@@ -71,13 +72,13 @@ namespace CustomClassList
 
         }
 
-        public int Capacity 
+        public int Capacity
         {
             get
             {
                 return capacity;
             }
-            
+
             set
             {
                 capacity = value;
@@ -87,8 +88,8 @@ namespace CustomClassList
         }
 
 
-     
-       //Functions
+
+        //Functions
         public void Add(T input)
         {
             if (ItemCount != Capacity)
@@ -98,8 +99,11 @@ namespace CustomClassList
             }
             else
             {
-                    ItemCount++;
-                    ChangeCapacity();
+                ChangeCapacity();
+                ListArray[ItemCount] = input;
+                ItemCount++;
+
+
             }
         }
 
@@ -107,7 +111,7 @@ namespace CustomClassList
         {
             if (ListArray.Contains(input))
             {
-               
+
             }
 
         }
@@ -117,27 +121,20 @@ namespace CustomClassList
 
         }
 
-        public void ChangeCapacity ()
+        public void ChangeCapacity()
         {
             Capacity += 4;
             T[] listArrayReplace = new T[ListArray.Length + 4];
 
-            for (int i = 0; i < ListArray.Length; i++) 
+            for (int i = 0; i < ListArray.Length; i++)
             {
                 listArrayReplace[i] = ListArray[i];
             }
-                  ListArray = null;
-                  ListArray = listArrayReplace;
-                  
+            ListArray = null;
+            ListArray = listArrayReplace;
+
         }
 
-            
 
     }
-
-
-
-       
-
-    
 }

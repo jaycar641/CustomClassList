@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29318.209
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomClassList", "CustomList\CustomClassList.csproj", "{6827B789-1ED4-42B4-809D-2D776139A2C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomCLassList", "CustomList\CustomCLassList.csproj", "{6827B789-1ED4-42B4-809D-2D776139A2C5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListTest", "ListTest\ListTest.csproj", "{F06D2A00-B928-4025-BD0D-F49E7BC7AA14}"
 EndProject

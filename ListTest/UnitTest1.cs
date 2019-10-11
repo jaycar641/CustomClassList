@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CustomClassList;
+using CustomCLassList;
 
 namespace ListTest
 {
@@ -15,7 +15,7 @@ namespace ListTest
         {
             //arrange
             MyList<int> testClass = new MyList<int>();
-
+            
             int test1 = 5;
             int expectedResult = 1;
             int actualResults;
@@ -31,7 +31,7 @@ namespace ListTest
         public void Add_Object_ListReturnsValue()
         {
             //arrange
-            CustomList<int> testClass = new CustomList<int>();
+            MyList<int> testClass = new MyList<int>();
             int test1 = 5;
             int expectedResult = test1;
             int actualResults;
@@ -47,7 +47,7 @@ namespace ListTest
         public void Add_Object_AddedAtNewIndex()
         {
             //arrange
-            CustomList<int> testClass = new CustomList<int>();
+            MyList<int> testClass = new MyList<int>();
             int test1 = 5;
             int test2 = 3;
             int testindex = 1;
@@ -68,7 +68,7 @@ namespace ListTest
         public void Add_ObjectCountIsEqualCapacity_ReturnsNewCapacity()
         {
             //arrange
-            CustomList<int> testClass = new CustomList<int>();
+            MyList<int> testClass = new MyList<int>();
             int expectedResults = 8;
             int actualResults;
 
@@ -90,7 +90,7 @@ namespace ListTest
         public void Add_ObjectCountIsEqualCapacity_ValuesInOldArrayReturnsInNewArray()
         {
             //arrange
-            CustomList<int> testClass = new CustomList<int>();
+            MyList<int> testClass = new MyList<int>();
             int test1 = 16;
             int expectedResults = test1;
             int actualResults;
@@ -112,38 +112,86 @@ namespace ListTest
 
 
         [TestMethod]
-        public void Remove_Object_DecreasesCount()
+        public void Remove_Object_ObjectRemovedFromIndex()
         {
-            //arrange
-            CustomList<int> testClass = new CustomList<int>();
-            int test1 = 5;
-            //testArray[0] = test1;
 
-            //  int expectedResult = testArray.Length;
-            int actualResults = 1;
+            //arrange
+            MyList<int> testClass = new MyList<int>();
+
+            testClass.Add(5);
+            testClass.Add(4);
+            testClass.Add(6);
+            int actualResults;
             int expectedResults = 0;
 
             //act
-            testClass.Remove(test1);
-          //  actualResults = testArray.Length;
+           
+            testClass.Remove(6);
+            actualResults = testClass.ListArray[2];
+
             //assert
-          Assert.AreEqual(actualResults, expectedResults);
+           Assert.AreEqual(actualResults, expectedResults);
+        }
+      
+        [TestMethod]
+        public void Remove_Object_ShiftsArrayElements()
+        {
+            //arrange
+            MyList<int> testClass = new MyList<int>();
+
+            testClass.Add(5);
+            testClass.Add(4);
+            testClass.Add(6);
+            int expectedResults = 6;
+            int actualResults;
+
+            //act
+            testClass.Remove(4);
+            actualResults = testClass.ListArray[1];
+            
+            //assert
+
+            Assert.AreEqual(actualResults, expectedResults);
         }
 
         [TestMethod]
-        public void Remove_Object_ReturnsTrue()
+        public void Remove_Object_ReturnsNewCount()
         {
-            int actualResults = 1;
-            int expectedResults = 0;
+            //arrange
+            MyList<int> testClass = new MyList<int>();
+            testClass.Add(5);
+            testClass.Add(4);
+            testClass.Add(6);
+            int actualResults;
+            int expectedResults = 2;
+
+            //act
+            testClass.Remove(4);
+            actualResults = testClass.ItemCount;
+            //assert
             Assert.AreEqual(actualResults, expectedResults);
 
         }
 
         [TestMethod]
-        public void Remove_Object_ShiftsArrayElements()
+        public void Remove_CounterLessThanCounterThreshold_DecrementsCapacity()
         {
-            int actualResults = 1;
-            int expectedResults = 0;
+            //act
+            MyList<int> testClass = new MyList<int>();
+            testClass.Add(5);
+            testClass.Add(4);
+            testClass.Add(6);
+            testClass.Add(10);
+            testClass.Add(15);
+            int actualResults;
+            int expectedResults = 4;
+
+            //arrange
+            testClass.Remove(15);
+            actualResults = testClass.Capacity;
+
+            //assert
+
             Assert.AreEqual(actualResults, expectedResults);
         }
 
