@@ -195,8 +195,9 @@ namespace ListTest
             Assert.AreEqual(actualResults, expectedResults);
         }
 
+
         [TestMethod]
-        public void Send_ObjectToString_ReturnsString()
+        public void Send_ObjectToString_ReturnsStringsInOrder()
         {
             int actualResults = 1;
             int expectedResults = 0;
@@ -204,7 +205,7 @@ namespace ListTest
         }
 
         [TestMethod]
-        public void Send_NoObjectToString_ReturnsNull()
+        public void Send_NoObjectToString_ReturnsNullElements()
         {
             int actualResults = 1;
             int expectedResults = 0;
@@ -212,7 +213,7 @@ namespace ListTest
         }
 
         [TestMethod]
-        public void Send_NullTypeToString_ReturnsNull()
+        public void Send_Empty_ReturnsNullList()
         {
             int actualResults = 1;
             int expectedResults = 0;

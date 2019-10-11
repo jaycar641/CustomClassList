@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomCLassList
 {
-    public class MyList<T>
+    public class MyList<T> : IEnumerable
     {
 
         /// <summary>
@@ -90,6 +90,16 @@ namespace CustomCLassList
 
 
         //Functions
+
+            public IEnumerator<T>  MyListEnumerator()
+        {
+
+            for (int i = 0; i < ItemCount;  i++)
+            {
+                yield return ListArray[i];
+            }
+
+        }
         public void Add(T input)
         {
             if (ItemCount != Capacity)
@@ -109,11 +119,7 @@ namespace CustomCLassList
 
         public void Remove(T input)
         {
-            if (ListArray.Contains(input))
-            {
-
-            }
-
+            MyListEnumerator();
         }
 
         public void Zip()
