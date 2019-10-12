@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,27 +20,31 @@ namespace CustomCLassList
         private T[] listArray = new T[4];
         private int itemCount = 0;
         private int capacity;
+        private T userInput;
+        private T[] test = new T[4];
+
 
         //Constructor/s
         public void myList()
         {
             Capacity = ListArray.Length;
+            
 
         }
 
 
         ////INDEXER
-             public T this[int index]
+        public T this[int index]
+        {
+            get
             {
-               get
-                {
-               return listArray[index];
-               }
+                return listArray[index];
+            }
             set
-           {
+            {
 
                 value = listArray[index];
-           }
+            }
         }
 
         //Properties
@@ -72,6 +77,19 @@ namespace CustomCLassList
 
         }
 
+        public T GetUserInput
+        {
+            get
+            {
+                return userInput;
+            }
+
+            set
+            {
+                userInput = value;
+            }
+        }
+
         public int Capacity
         {
             get
@@ -91,12 +109,17 @@ namespace CustomCLassList
 
         //Functions
 
-            public IEnumerator<T>  MyListEnumerator()
+        public IEnumerator GetEnumerator()
         {
 
-            for (int i = 0; i < ItemCount;  i++)
+            for (int i = 0; i <= ItemCount-1; i++)
             {
+                
+                test[i] = ListArray[i];
+                             
                 yield return ListArray[i];
+
+
             }
 
         }
@@ -117,10 +140,40 @@ namespace CustomCLassList
             }
         }
 
-        public void Remove(T input)
+        public void Remove (T input) 
         {
-            MyListEnumerator();
+
+            IEnumerator enumerator = GetEnumerator();
+
+            int[] tesdt = new int[4];
+            tesdt[1] = 10;
+          
+            while (!tesdt[1].Equals(input)) //when input = 10 end loop
+            {
+               //add++;
+
+                //  for (int i = 0; i <= ItemCount - 1; i++)
+                //   {
+                enumerator.MoveNext();
+
+
+                //  }
+
+                //(deleteObject == true)
+           }
+            tesdt[1] = default;
+           // test[test.Length - 1] = default;
+            Console.ReadLine();
+
+
         }
+
+
+
+
+
+
+
 
         public void Zip()
         {
