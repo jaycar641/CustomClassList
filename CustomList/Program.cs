@@ -15,8 +15,8 @@ namespace CustomCLassList
             mine.Add(10);
             mine.Add(12);
             mine.Add(14);
-            mine.Remove(10);
-
+            //mine.Remove(10);
+            mine.ToString();
         }
     }
 }

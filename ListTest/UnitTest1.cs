@@ -199,8 +199,22 @@ namespace ListTest
         [TestMethod]
         public void Send_ObjectToString_ReturnsStringsInOrder()
         {
-            int actualResults = 1;
-            int expectedResults = 0;
+            //act
+            MyList<int> testList = new MyList<int>();
+
+            testList.Add(10);
+            testList.Add(20);
+            testList.Add(30);
+            testList.Add(40);
+            testList.Add(50);
+            string expectedResults = "10, 20, 30, 40, 50";
+            string actualResults;
+            
+            //arrange
+            actualResults = testList.ToString();
+
+            //assert
+
             Assert.AreEqual(actualResults, expectedResults);
         }
 
