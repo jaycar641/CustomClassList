@@ -333,45 +333,5 @@ namespace ListTest
 
         }
 
-
-
-
-
-
-
-        public void Index_SelectIndex_SetsIndex()
-        {
-            int actualResults = 1;
-            int expectedResults = 0;
-            Assert.AreEqual(actualResults, expectedResults);
-        }
-
-        public void Index_SelectIndex_GetsIndex()
-        {
-            int actualResults = 1;
-            int expectedResults = 0;
-            Assert.AreEqual(actualResults, expectedResults);
-        }
-
-        public void Index_SelectIndex_ReturnIndex()
-        {
-            int actualResults = 1;
-            int expectedResults = 0;
-            Assert.AreEqual(actualResults, expectedResults);
-        }
-
-        public void Index_SelectIndex_ReturnsIndexOutOfRangeException()
-        {
-            int actualResults = 1;
-            int expectedResults = 0;
-            Assert.AreEqual(actualResults, expectedResults);
-        }
-
-
-
-
-
-
-
     }
 }

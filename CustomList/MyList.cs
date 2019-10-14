@@ -9,31 +9,18 @@ namespace CustomCLassList
 {
     public class MyList<T> : IEnumerable
     {
-
-        /// <summary>
-        /// Assignments:
-        /// 1. debug the Change replace values test.
-        /// 2. finish add function
-        /// </summary>
-
-        //Fields
         private T[] listArray = new T[4];
         private int itemCount = 0;
         private int capacity;
         private T userInput;
-        
         private T[] test = new T[4];
 
-
-        //Constructor/s
         public void myList()
         {
             Capacity = ListArray.Length;
 
         }
 
-
-        ////INDEXER
         public T this[int index]
         {
             get
@@ -42,12 +29,9 @@ namespace CustomCLassList
             }
             set
             {
-
                 value = listArray[index];
             }
         }
-
-        //Properties
 
         public T[] ListArray
         {
@@ -102,12 +86,8 @@ namespace CustomCLassList
                 capacity = value;
             }
 
-
         }
 
-
-
-        //Functions
 
         public IEnumerator GetEnumerator()
         {
@@ -118,8 +98,6 @@ namespace CustomCLassList
                 test[i] = ListArray[i];
                              
                 yield return ListArray[i];
-
-
             }
 
         }
@@ -151,29 +129,21 @@ namespace CustomCLassList
         {
 
             IEnumerator enumerator = GetEnumerator();
-
-
             enumerator.MoveNext();
 
-            
                 for (int i = 0; i <= ItemCount - 1; i++)
                 {
 
                     if (enumerator.Current.Equals(input))
                     {
-                        int tempItemCount;
-
-                        int remain = (ItemCount - 1) - i;
-
                         T[] listArrayReplace = new T[8];
 
                         for (int j = 0; j < ListArray.Length; j++)
                         {
                             listArrayReplace[j] = ListArray[j];
                             ListArray[j] = default;
-
                         }
-                    ItemCount = 0;
+                        ItemCount = 0;
                         Capacity = 0;
 
                         for (int j = 0; j < listArrayReplace.Length; j++)
@@ -185,26 +155,65 @@ namespace CustomCLassList
                             }
                             else
                             {
-                               
-                                    Add(listArrayReplace[j]);   
+                                Add(listArrayReplace[j]);   
                             }
-
 
                         } 
                                        
-
-
                     }
 
                     enumerator.MoveNext();
 
-                
             }
-
-
             
         }
 
+        public static MyList<T> operator +(MyList<T> list1, MyList<T> list2) //check count and capacity for every function
+        {
+            MyList<T> mylist = new MyList<T>();
+
+            for (int i = 0; i < list1.ListArray.Length; i++)
+            {
+                mylist.Add(list1[i]);
+            }
+            for (int i = 0; i < list2.ListArray.Length; i++)
+            {
+                mylist.Add(list2[i]);
+            }
+
+            return mylist;
+        }
+
+        public static MyList<T> operator -(MyList<T> list1, MyList<T> list2) //check count and capacity for every function
+        {
+            MyList<T> mylist = new MyList<T>();
+
+            for (int i = 0; i < list1.ListArray.Length; i++)
+            {
+
+                mylist.Add(list1[i]);
+
+            }
+
+
+            return mylist;
+        }
+
+        public void Zip(MyList<T> listOne, MyList<T> listTwo) //where T lists objects can be passed through with 2 parameters constraints
+        {
+
+            MyList<T> tempList = new MyList<T>();
+            ItemCount = 0;
+            Capacity = 0;
+
+            for (int j = 0; j < listOne.ListArray.Length; j++)
+            {
+                tempList.Add(listOne.ListArray[j]);
+                tempList.Add(listTwo.ListArray[j]);
+
+            }
+            ListArray = tempList.ListArray;
+        }
         public override string ToString()
         {
             // add indexer
