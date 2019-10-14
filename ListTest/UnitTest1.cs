@@ -219,7 +219,7 @@ namespace ListTest
         }
 
         [TestMethod]
-        public void Send_ObjectToStringandConcatonates_ReturnsJoinedPhroases()
+        public void Send_ObjectToString_ReturnsJoinedPhroases()
         {
             //arrange
             MyList<int> testList = new MyList<int>();
@@ -234,7 +234,27 @@ namespace ListTest
             Assert.AreEqual(actualResults, expectedResults);
         }
 
-       
+        [TestMethod]
+        public void Send_ObjectToString_CanBePassedAsAnArgument()
+        {
+            //arrange
+            MyList<int> testList = new MyList<int>();
+            int test1 = 5;
+            testList.Add(5);
+            string expectedResults = Convert.ToString(test1);
+            string actualResults;
+
+            //act
+            MyList<string> testList2 = new MyList<string>();
+            testList2.Add(testList.ToString());
+            actualResults = testList2[0];
+            //assign
+            Assert.AreEqual(actualResults, expectedResults);
+        }
+
+
+
+
 
         public void Index_SelectIndex_SetsIndex()
         {
