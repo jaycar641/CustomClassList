@@ -275,23 +275,66 @@ namespace ListTest
 
             testList.Zip(testList, testList2);
             actualResults = testList.ListArray;
+            Assert.AreEqual(actualResults, expectedResults);
 
         }
 
-    public void Zip_BothObjects_IncreaseCount ()
+        public void Zip_BothObjects_IncreaseCount ()
         {
+            MyList<int> testList = new MyList<int>();
+            MyList<int> testList2 = new MyList<int>();
+
+            testList.Add(0);
+            testList.Add(2);
+            testList.Add(4);
+            testList.Add(6);
+            testList.Add(8);
+            testList.Add(10);
+            testList2.Add(1);
+            testList2.Add(3);
+            testList2.Add(5);
+            testList2.Add(7);
+            testList2.Add(9);
+            int actualResults;
+            int expectedResults = 11;
+
+            testList.Zip(testList, testList2);
+            actualResults = testList.ItemCount;
+
+            Assert.AreEqual(actualResults, expectedResults);
 
 
         }
 
         public void Zip_BothObjects_IncreaseCapacity ()
         {
+            MyList<int> testList = new MyList<int>();
+            MyList<int> testList2 = new MyList<int>();
+
+            testList.Add(0);
+            testList.Add(2);
+            testList.Add(4);
+            testList.Add(6);
+            testList.Add(8);
+            testList.Add(10);
+            testList2.Add(1);
+            testList2.Add(3);
+            testList2.Add(5);
+            testList2.Add(7);
+            testList2.Add(9);
+            int actualResults;
+            int expectedResults = 12;
+
+            testList.Zip(testList, testList2);
+            actualResults = testList.Capacity;
+
+            Assert.AreEqual(actualResults, expectedResults);
 
 
         }
 
-        
-        
+
+
 
 
 
