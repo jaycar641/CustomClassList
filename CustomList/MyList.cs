@@ -29,6 +29,11 @@ namespace CustomCLassList
             }
             set
             {
+                if (index < 0 )
+                {
+
+                    value = listArray[0];
+                }
                 value = listArray[index];
             }
         }
@@ -94,22 +99,12 @@ namespace CustomCLassList
 
             for (int i = 0; i <= ItemCount-1; i++)
             {
-                
-                test[i] = ListArray[i];
-                             
+                                             
                 yield return ListArray[i];
             }
 
         }
 
-        public IEnumerator altEnumerator()
-        {
-            for (int i = 0; i <= ItemCount-1; i++)
-            {
-                yield return ListArray[i];
-               
-            }
-        }
         public void Add(T input)
         {
             if (ItemCount != Capacity)
@@ -172,11 +167,11 @@ namespace CustomCLassList
         {
             MyList<T> mylist = new MyList<T>();
 
-            for (int i = 0; i < list1.ListArray.Length; i++)
+            for (int i = 0; i < list1.ItemCount; i++)
             {
                 mylist.Add(list1[i]);
             }
-            for (int i = 0; i < list2.ListArray.Length; i++)
+            for (int i = 0; i < list2.ItemCount; i++)
             {
                 mylist.Add(list2[i]);
             }
