@@ -171,18 +171,7 @@ namespace CustomCLassList
 
         public override string ToString()
         {
-            // add indexer
-            string arrayHolder = "";
-            for (int i = 0; i < ItemCount - 1; i++)
-            {
-                arrayHolder += ListArray[i] + ", ";
-
-            }
-            arrayHolder += ListArray[ItemCount - 1];
-
-            Console.WriteLine(arrayHolder);
-
-            return arrayHolder;
+            
         }
 
 

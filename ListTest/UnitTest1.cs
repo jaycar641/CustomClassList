@@ -219,10 +219,17 @@ namespace ListTest
         }
 
         [TestMethod]
-        public void Send_NoObjectToString_ReturnsNullElements()
+        public void Send_NoObjectToString_ReturnsIndexOutOfRange()
         {
-            int actualResults = 1;
-            int expectedResults = 0;
+            //arrange
+            MyList<int> testList = new MyList<int>();
+            IndexOutOfRangeException expectedResults = new IndexOutOfRangeException();
+            
+            string actualResults;
+
+            //act
+           actualResults = testList.ToString();
+            //assign
             Assert.AreEqual(actualResults, expectedResults);
         }
 
