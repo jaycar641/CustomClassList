@@ -254,6 +254,46 @@ namespace ListTest
 
 
 
+        public void Zip_BothObjects_ReturnsAllElements ()
+        {
+            MyList<int> testList = new MyList<int>();
+            MyList<int> testList2 = new MyList<int>();
+
+            testList.Add(0);
+            testList.Add(2);
+            testList.Add(4);
+            testList.Add(6);
+            testList.Add(8);
+            testList.Add(10);
+            testList2.Add(1);
+            testList2.Add(3);
+            testList2.Add(5);
+            testList2.Add(7);
+            testList2.Add(9);
+            int[] actualResults;
+            int[] expectedResults = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            testList.Zip(testList, testList2);
+            actualResults = testList.ListArray;
+
+        }
+
+    public void Zip_BothObjects_IncreaseCount ()
+        {
+
+
+        }
+
+        public void Zip_BothObjects_IncreaseCapacity ()
+        {
+
+
+        }
+
+        
+        
+
+
 
 
         public void Index_SelectIndex_SetsIndex()

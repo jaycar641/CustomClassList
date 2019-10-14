@@ -21,6 +21,7 @@ namespace CustomCLassList
         private int itemCount = 0;
         private int capacity;
         private T userInput;
+        
         private T[] test = new T[4];
 
 
@@ -28,7 +29,6 @@ namespace CustomCLassList
         public void myList()
         {
             Capacity = ListArray.Length;
-            
 
         }
 
@@ -115,6 +115,7 @@ namespace CustomCLassList
             for (int i = 0; i <= ItemCount-1; i++)
             {
                 
+                test[i] = ListArray[i];
                              
                 yield return ListArray[i];
 
@@ -122,10 +123,28 @@ namespace CustomCLassList
             }
 
         }
+
+        public IEnumerator altEnumerator()
+        {
+            for (int i = 0; i <= ItemCount-1; i++)
+            {
+                yield return ListArray[i];
+               
+            }
+        }
         public void Add(T input)
         {
-            CheckCapacity(input);
-           
+            if (ItemCount != Capacity)
+            {
+                ListArray[ItemCount] = input;
+                ItemCount++;
+            }
+            else
+            {
+                ChangeCapacity();
+                ListArray[ItemCount] = input;
+                ItemCount++;
+            }
         }
 
         public void Remove(T input)
@@ -146,7 +165,7 @@ namespace CustomCLassList
 
                         int remain = (ItemCount - 1) - i;
 
-                        T[] listArrayReplace = new T[ListArray.Length];
+                        T[] listArrayReplace = new T[8];
 
                         for (int j = 0; j < ListArray.Length; j++)
                         {
@@ -155,7 +174,7 @@ namespace CustomCLassList
 
                         }
                     ItemCount = 0;
-                        Capacity = 4;
+                        Capacity = 0;
 
                         for (int j = 0; j < listArrayReplace.Length; j++)
                         {
@@ -169,6 +188,7 @@ namespace CustomCLassList
                                
                                     Add(listArrayReplace[j]);   
                             }
+
 
                         } 
                                        
@@ -185,26 +205,15 @@ namespace CustomCLassList
             
         }
 
-        public void CheckCapacity(T input)
-        {
-            if (ItemCount != Capacity)
-            {
-                ListArray[ItemCount] = input;
-                ItemCount++;
-            }
-            else
-            {
-                ChangeCapacity();
-                ListArray[ItemCount] = input;
-                ItemCount++;
-            }
-
-        }
-
         public override string ToString()
         {
             // add indexer
             string arrayHolder = "";
+            if (ItemCount == 0)
+            {
+                string mess = "Does not have any values";
+                return mess;
+            }
             for (int i = 0; i < ItemCount - 1; i++)
             {
                 arrayHolder += ListArray[i] + ", ";
@@ -217,18 +226,8 @@ namespace CustomCLassList
             return arrayHolder;
         }
 
-
-
-
-
-        public void Zip() //where T lists objects can be passed through with 2 parameters constraints
-        {
-
-        }
-
         public void ChangeCapacity()
         {
-            Capacity += 4;
             T[] listArrayReplace = new T[ListArray.Length + 4];
 
             for (int i = 0; i < ListArray.Length; i++)
@@ -237,7 +236,7 @@ namespace CustomCLassList
             }
             ListArray = null;
             ListArray = listArrayReplace;
-
+            Capacity = ListArray.Length;
         }
 
 

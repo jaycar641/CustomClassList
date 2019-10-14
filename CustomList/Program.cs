@@ -12,13 +12,16 @@ namespace CustomCLassList
         {
             MyList<int> mine = new MyList<int>();
             mine.Add(5);
-            mine.Add(10);
-            mine.Add(12);
-            mine.Add(14);
-            mine.Add(16);
 
-            mine.Remove(12);
             Console.WriteLine(mine);
+            Console.ReadLine();
+
+            foreach (int test in mine)
+            {
+                Console.WriteLine(test);
+
+            }
+            Console.ReadLine();
         }
     }
 }
