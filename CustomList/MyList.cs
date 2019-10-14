@@ -171,14 +171,25 @@ namespace CustomCLassList
 
         public override string ToString()
         {
-           
+            // add indexer
+            string arrayHolder = "";
+            for (int i = 0; i < ItemCount - 1; i++)
+            {
+                arrayHolder += ListArray[i] + ", ";
+
+            }
+            arrayHolder += ListArray[ItemCount - 1];
+
+            Console.WriteLine(arrayHolder);
+
+            return arrayHolder;
         }
 
 
 
 
 
-        public void Zip()
+        public void Zip() //where T lists objects can be passed through with 2 parameters constraints
         {
 
         }
