@@ -219,27 +219,22 @@ namespace ListTest
         }
 
         [TestMethod]
-        public void Send_NoObjectToString_ReturnsIndexOutOfRange()
+        public void Send_ObjectToStringandConcatonates_ReturnsJoinedPhroases()
         {
             //arrange
             MyList<int> testList = new MyList<int>();
-            IndexOutOfRangeException expectedResults = new IndexOutOfRangeException();
-            
-            string actualResults;
+            testList.Add(5);
+            int test = testList[0];
+            string expectedResults = Convert.ToString(test) + " " + Convert.ToString(test);
 
             //act
-           actualResults = testList.ToString();
+            string actualResults = testList.ToString() + " " + testList.ToString();
+
             //assign
             Assert.AreEqual(actualResults, expectedResults);
         }
 
-        [TestMethod]
-        public void Send_Empty_ReturnsNullList()
-        {
-            int actualResults = 1;
-            int expectedResults = 0;
-            Assert.AreEqual(actualResults, expectedResults);
-        }
+       
 
         public void Index_SelectIndex_SetsIndex()
         {

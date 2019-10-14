@@ -10,13 +10,13 @@ namespace CustomCLassList
     {
         static void Main(string[] args)
         {
-            MyList<int> mine = new MyList<int>();
-            //mine.Add(5);
+            MyList<bool> mine = new MyList<bool>();
+            mine.Add(true);
             //mine.Add(10);
             //mine.Add(12);
             //mine.Add(14);
             //mine.Remove(10);
-            mine.ToString();
+            Console.WriteLine(mine.ToString() +" " + mine.ToString());
         }
     }
 }
