@@ -115,7 +115,6 @@ namespace CustomCLassList
             for (int i = 0; i <= ItemCount-1; i++)
             {
                 
-                test[i] = ListArray[i];
                              
                 yield return ListArray[i];
 
@@ -125,9 +124,72 @@ namespace CustomCLassList
         }
         public void Add(T input)
         {
+            CheckCapacity(input);
+           
+        }
+
+        public void Remove(T input)
+        {
+
+            IEnumerator enumerator = GetEnumerator();
+
+
+            enumerator.MoveNext();
+
+            
+                for (int i = 0; i <= ItemCount - 1; i++)
+                {
+
+                    if (enumerator.Current.Equals(input))
+                    {
+                        int tempItemCount;
+
+                        int remain = (ItemCount - 1) - i;
+
+                        T[] listArrayReplace = new T[ListArray.Length];
+
+                        for (int j = 0; j < ListArray.Length; j++)
+                        {
+                            listArrayReplace[j] = ListArray[j];
+                            ListArray[j] = default;
+
+                        }
+                    ItemCount = 0;
+                        Capacity = 4;
+
+                        for (int j = 0; j < listArrayReplace.Length; j++)
+                        {
+                           
+                            if (j == i)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                               
+                                    Add(listArrayReplace[j]);   
+                            }
+
+                        } 
+                                       
+
+
+                    }
+
+                    enumerator.MoveNext();
+
+                
+            }
+
+
+            
+        }
+
+        public void CheckCapacity(T input)
+        {
             if (ItemCount != Capacity)
             {
-                listArray[ItemCount] = input;
+                ListArray[ItemCount] = input;
                 ItemCount++;
             }
             else
@@ -135,39 +197,9 @@ namespace CustomCLassList
                 ChangeCapacity();
                 ListArray[ItemCount] = input;
                 ItemCount++;
-
-
             }
-        }
-
-        public void Remove (T input) 
-        {
-
-            IEnumerator enumerator = GetEnumerator();
-
-            int[] tesdt = new int[4];
-            tesdt[1] = 10;
-          
-            while (!tesdt[1].Equals(input)) //when input = 10 end loop
-            {
-               //add++;
-
-                //  for (int i = 0; i <= ItemCount - 1; i++)
-                //   {
-                enumerator.MoveNext();
-
-
-                //  }
-
-                //(deleteObject == true)
-           }
-            tesdt[1] = default;
-           // test[test.Length - 1] = default;
-            Console.ReadLine();
-
 
         }
-
 
         public override string ToString()
         {
