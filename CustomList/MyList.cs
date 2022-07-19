@@ -123,8 +123,6 @@ namespace CustomCLassList
 
         public void Remove(T input)
         {
-                       // ItemCount = 0;
-                        //Capacity = 0;
 
                 int index;
             IEnumerator enumerator = GetEnumerator();
@@ -137,42 +135,28 @@ namespace CustomCLassList
 
                      //the item that is to be removed
                   index = Array.IndexOf(listArray, enumerator.Current); //the index of the removed item
-                    //1914 n prospect embassy apartments 2nd of 414305
 
                         MyList<T> listArrayReplace = new MyList<T>();
                             
-                            int arrayOne = index; // 2
-                            int arrayTwo = ListArray.Length; //5-2= 2
-                        for (int j = 0; j < arrayOne; j++) //the first half, index is 2, this is where it stops
+
+                        for (int j = 0; j < ListArray.Length-1; j++) //the first half, index is 2, this is where it stops
                         {
-                            
-                             // 0, 1, the index of the item being removed will not be in the array
-                                        listArrayReplace.Add(ListArray[j]);
-                                        
+                                            
+                         if(j == index ) 
+                        {
+                         continue;
                         
                         }
-
-                        for(int k = index+1; k < arrayTwo; k++)//
-                        {
-                       //  2 3 4 5
-                        listArrayReplace.Add(ListArray[k]); //at the index where the old value was the next value is placed
-
-                        }    
-
-
-                        ListArray = listArrayReplace.ListArray;
-
-                        ////The capacitys and Item count have to be the same factor of 4
-                        if(listArrayReplace.Capacity == ListArray.Capacity) {
-
-
+                         {
+                         listArrayReplace.Add(ListArray[j]);
+                                            
+                         }
+                                                                
                         }
-///listreplace 0;5. 1:10;;; 2:20 3:25:
-//// 5, 10 15 20 25
-                    
 
-            
-            
+                    ListArray = listArrayReplace.ListArray;
+                    ItemCount--;
+                    Capacity--;
         }
 
         public static MyList<T> operator +(MyList<T> list1, MyList<T> list2) //check count and capacity for every function
@@ -206,20 +190,20 @@ namespace CustomCLassList
             return mylist;
         }
 
-        public void Zip(MyList<T> listOne, MyList<T> listTwo) //where T lists objects can be passed through with 2 parameters constraints
+        public MyList<T> Zip(MyList<T> listOne, MyList<T> listTwo) //where T lists objects can be passed through with 2 parameters constraints
         {
 
             MyList<T> tempList = new MyList<T>();
-            ItemCount = 0;
-            Capacity = 0;
+            
 
-            for (int j = 0; j < listOne.ListArray.Length; j++)
+            for (int j = 0; j < ItemCount; j++)
             {
                 tempList.Add(listOne.ListArray[j]);
                 tempList.Add(listTwo.ListArray[j]);
 
+
             }
-            ListArray = tempList.ListArray;
+             return tempList;
         }
         public override string ToString()
         {
