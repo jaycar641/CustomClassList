@@ -137,24 +137,36 @@ namespace CustomCLassList
 
                      //the item that is to be removed
                   index = Array.IndexOf(listArray, enumerator.Current); //the index of the removed item
-                    
-                        T[] listArrayReplace = new T[ListArray.Length+1]; //5 total elements in array
-                        for (int j = 0; j < index; j++) //index is 2, this is where it stops
+                    //1914 n prospect embassy apartments 2nd of 414305
+
+                        MyList<T> listArrayReplace = new MyList<T>();
+                            
+                            int arrayOne = index; // 2
+                            int arrayTwo = ListArray.Length; //5-2= 2
+                        for (int j = 0; j < arrayOne; j++) //the first half, index is 2, this is where it stops
                         {
                             
-                            listArrayReplace[j] = ListArray[j]; // 0, 1, the index of the item being removed will not be in the array
+                             // 0, 1, the index of the item being removed will not be in the array
+                                        listArrayReplace.Add(ListArray[j]);
+                                        
                         
                         }
 
-                        for(int k = index; k <= ListArray.Length-1; k++)//
+                        for(int k = index+1; k < arrayTwo; k++)//
                         {
                        //  2 3 4 5
-                        listArrayReplace[index] = ListArray[index+1]; //at the index where the old value was the next value is placed
+                        listArrayReplace.Add(ListArray[k]); //at the index where the old value was the next value is placed
 
                         }    
 
 
-                        ListArray = listArrayReplace;
+                        ListArray = listArrayReplace.ListArray;
+
+                        ////The capacitys and Item count have to be the same factor of 4
+                        if(listArrayReplace.Capacity == ListArray.Capacity) {
+
+
+                        }
 ///listreplace 0;5. 1:10;;; 2:20 3:25:
 //// 5, 10 15 20 25
                     
