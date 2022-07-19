@@ -11,16 +11,22 @@ namespace CustomCLassList
         static void Main(string[] args)
         {
             MyList<int> mylist = new MyList<int>();
-            MyList<int> mylist2 = new MyList<int>();
+
 
             mylist.Add(5);
             mylist.Add(10);
-            mylist2.Add(5);
-            mylist2.Add(10);
+            mylist.Add(15);
+            mylist.Add(20);
+            mylist.Add(25);
+            mylist.Remove(15);
+            mylist.Remove(10);
 
-            Console.WriteLine(mylist + mylist2);
+                foreach(int numVar in mylist) {
+                Console.WriteLine(numVar);
+                Console.WriteLine("Capacity " + mylist.Capacity + "ItemCount" + mylist.ItemCount);
+                Console.ReadLine();
+                }
 
-            Console.ReadLine();
 
 
         }
