@@ -15,13 +15,14 @@ namespace CustomCLassList
         private T userInput;
         private T[] test = new T[4];
 
-        public void myList()
+        public MyList()
         {
             Capacity = ListArray.Length;
 
+            
         }
 
-        public T this[int index]
+        public T this[int index] /// this gets and sets values using the index
         {
             get
             {
@@ -29,16 +30,13 @@ namespace CustomCLassList
             }
             set
             {
-                if (index < 0 )
-                {
-
-                    value = listArray[0];
-                }
-                value = listArray[index];
+                
+                listArray[index] = value;
+                    
             }
         }
 
-        public T[] ListArray
+        public T[] ListArray //this is returning the entire array
         {
             get
             {
@@ -107,10 +105,13 @@ namespace CustomCLassList
 
         public void Add(T input)
         {
+            
             if (ItemCount != Capacity)
             {
                 ListArray[ItemCount] = input;
+                
                 ItemCount++;
+
             }
             else
             {
@@ -122,44 +123,43 @@ namespace CustomCLassList
 
         public void Remove(T input)
         {
+                       // ItemCount = 0;
+                        //Capacity = 0;
 
+                int index;
             IEnumerator enumerator = GetEnumerator();
-            enumerator.MoveNext();
+                enumerator.MoveNext();
 
-                for (int i = 0; i <= ItemCount - 1; i++)
+                while(!enumerator.Current.Equals(input))
                 {
-
-                    if (enumerator.Current.Equals(input))
-                    {
-                        T[] listArrayReplace = new T[8];
-
-                        for (int j = 0; j < ListArray.Length; j++)
-                        {
-                            listArrayReplace[j] = ListArray[j];
-                            ListArray[j] = default;
-                        }
-                        ItemCount = 0;
-                        Capacity = 0;
-
-                        for (int j = 0; j < listArrayReplace.Length; j++)
-                        {
-                           
-                            if (j == i)
-                            {
-                                continue;
-                            }
-                            else
-                            {
-                                Add(listArrayReplace[j]);   
-                            }
-
-                        } 
-                                       
-                    }
-
                     enumerator.MoveNext();
+                }
 
-            }
+                     //the item that is to be removed
+                  index = Array.IndexOf(listArray, enumerator.Current); //the index of the removed item
+                    
+                        T[] listArrayReplace = new T[ListArray.Length+1]; //5 total elements in array
+                        for (int j = 0; j < index; j++) //index is 2, this is where it stops
+                        {
+                            
+                            listArrayReplace[j] = ListArray[j]; // 0, 1, the index of the item being removed will not be in the array
+                        
+                        }
+
+                        for(int k = index; k <= ListArray.Length-1; k++)//
+                        {
+                       //  2 3 4 5
+                        listArrayReplace[index] = ListArray[index+1]; //at the index where the old value was the next value is placed
+
+                        }    
+
+
+                        ListArray = listArrayReplace;
+///listreplace 0;5. 1:10;;; 2:20 3:25:
+//// 5, 10 15 20 25
+                    
+
+            
             
         }
 
