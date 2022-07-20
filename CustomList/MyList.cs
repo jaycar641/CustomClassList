@@ -179,7 +179,7 @@ namespace CustomCLassList
         {
             MyList<T> mylist = new MyList<T>();
 
-            for (int i = 0; i < list1.ListArray.Length; i++)
+            for (int i = 0; i < list1.ItemCount; i++)
             {
 
                 mylist.Add(list1[i]);
@@ -220,8 +220,6 @@ namespace CustomCLassList
 
             }
             arrayHolder += ListArray[ItemCount - 1];
-
-            Console.WriteLine(arrayHolder);
 
             return arrayHolder;
         }
